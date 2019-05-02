@@ -79,7 +79,7 @@ import com.rabbitmq.client.impl.nio.NioParams;
  */
 public class RabbitConnectionFactoryBean extends AbstractFactoryBean<ConnectionFactory> {
 
-	private static final String SUN_X509 = "SunX509";
+	private static final String CURRENT_ALGORITHM = KeyManagerFactory.getDefaultAlgorithm();
 
 	private static final String KEY_STORE = "keyStore";
 
@@ -135,9 +135,9 @@ public class RabbitConnectionFactoryBean extends AbstractFactoryBean<ConnectionF
 
 	private boolean enableHostnameVerification = true;
 
-	private String keyStoreAlgorithm = SUN_X509;
+	private String keyStoreAlgorithm = CURRENT_ALGORITHM;
 
-	private String trustStoreAlgorithm = SUN_X509;
+	private String trustStoreAlgorithm = CURRENT_ALGORITHM;
 
 	public RabbitConnectionFactoryBean() {
 		this.connectionFactory.setAutomaticRecoveryEnabled(false);
